@@ -10,90 +10,102 @@ body{
   overflow-x:hidden;
   background:#fff7f8 url("images/background.jpg") center top / cover fixed no-repeat;
 }
-body:before{
+
+body::before{
   content:"";position:fixed;inset:0;pointer-events:none;
   background:rgba(255,255,255,.12);
-  z-index:-2
+  z-index:-2;
 }
+
 #stars{position:fixed;inset:0;z-index:-1;overflow:hidden}
-.star{position:absolute;width:3px;height:3px;background:#d8899b;border-radius:50%;opacity:.35;animation:twinkle 3s infinite ease-in-out}
+.star{position:absolute;width:4px;height:4px;background:#d8849b;border-radius:50%;opacity:.85;animation:twinkle 3s infinite}
 .grain{display:none}
 
 .opening{
   min-height:100svh;display:grid;place-items:center;text-align:center;padding:30px;
-  transition:opacity 1.2s ease,transform 1.2s ease
+  transition:opacity 1.2s ease,transform 1.2s ease;
 }
+
 .opening.hide{opacity:0;transform:scale(1.04);pointer-events:none}
 .opening-content{max-width:800px}
-.cryptic{margin:0;opacity:0;font-family:"Caveat","Segoe Print","Bradley Hand",cursive;font-size:clamp(28px,6vw,58px);letter-spacing:.02em}
-.line.one{animation:fadeUp 1.6s .4s forwards}
-.line.two{animation:fadeUp 1.4s 2.5s forwards;font-size:clamp(18px,4vw,32px);margin-top:25px;color:#8c6572}
-.line.three{animation:fadeUp 1.4s 4.1s forwards;font-size:clamp(18px,4vw,32px);color:#8c6572}
+.cryptic{margin:0;opacity:0;font-family:"Caveat","Segoe Print","Bradley Hand",cursive;font-size:clamp(20px,6vw,50px);line-height:1.2}
+.line.one{animation:fadeInUp 1.5s 0.4s forwards}
+.line.two{animation:fadeInUp 1.4s 2.5s forwards;font-size:clamp(18px,4vw,32px);margin-top:25px;color:#8c6572}
+.line.three{animation:fadeInUp 1.4s 4.1s forwards;font-size:clamp(18px,4vw,32px);color:#8c6572}
 .reveal{opacity:0;transform:translateY(18px);animation:reveal 1.7s 5.8s forwards;margin-top:65px}
-.small{font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:#9b6e7b;margin:0 0 8px}
+.small{font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:#9b6e7b;margin:0 0 5px}
 h1,h2,h3{font-family:"Caveat","Segoe Print","Bradley Hand",cursive;font-weight:400}
 h1{font-size:clamp(65px,15vw,130px);margin:0;line-height:.8}
-h1 span{font-size:.5em;color:#d8899b}
-.birthday{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#8c6572;margin:24px 0 35px}
+h1 span{font-size:.5em;color:#d0699b}
+.birthday{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#8c6572;margin:24px 0 33px}
 button{font:inherit}
 #openBtn{
   background:transparent;border:1px solid rgba(160,105,120,.35);color:#4b3540;
   padding:12px 22px;border-radius:999px;cursor:pointer;letter-spacing:.12em;text-transform:lowercase;
-  transition:.3s
+  transition:.2s;
 }
 #openBtn:hover{background:rgba(255,255,255,.45);border-color:rgba(160,105,120,.5);transform:translateY(-2px)}
 
 .page{min-height:100svh;padding:110px 22px;display:flex;align-items:center;justify-content:center}
 .section-inner{width:min(850px,100%);margin:auto}
 .centered{text-align:center}
-.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.32em;color:#8f95a8;margin:0 0 14px}
-h2{font-size:clamp(45px,9vw,78px);line-height:.95;margin:0 0 30px}
-.divider{width:55px;height:1px;background:rgba(255,255,255,.25);margin:0 0 42px}
-.letter{font-family:"Caveat","Segoe Print","Bradley Hand",cursive;font-size:20px;line-height:1.75;color:#554049;white-space:pre-line}
-.letter::first-letter{font-size:3.4em;float:left;line-height:.8;padding-right:7px;color:#d8899b}
+.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.32em;color:#8795a8;margin:0 0 14px}
+h2{font-size:clamp(45px,9vw,70px);line-height:.95;margin:0 0 30px}
+.divider{width:55px;height:1px;background:rgba(160,105,120,.25);margin:0 0 42px}
+.letter{font-family:"Caveat","Segoe Print","Bradley Hand",cursive;font-size:26px;line-height:1.75;color:#554049;white-space:pre-line}
+.letter::first-letter{font-size:3.4em;float:left;line-height:.8;padding-right:7px;color:#d8849b}
 
 .timeline{border-left:1px solid rgba(160,105,120,.22);margin-left:12px}
 .moment{display:grid;grid-template-columns:80px 1fr;gap:25px;padding:0 0 45px 25px;position:relative}
-.moment:before{content:"";position:absolute;left:-4px;top:5px;width:7px;height:7px;border-radius:50%;background:#b8a8d9;box-shadow:0 0 15px #b8a8d9}
+.moment::before{content:"";position:absolute;left:-4px;top:5px;width:7px;height:7px;border-radius:50%;background:#b8a0a9}
 .moment span{font-size:12px;letter-spacing:.12em;color:#9b6e7b}
-.moment h3{font-size:30px;margin:0 0 5px}
+.moment h3{font-size:30px;margin:0 0 3px}
 .moment p{margin:0;color:#8d6d77;line-height:1.7;font-size:14px}
 
 .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.card{min-height:200px;padding:25px;border:1px solid rgba(150,95,110,.14);background:rgba(255,255,255,.34);transition:.4s}
+.card{min-height:200px;padding:25px;border:1px solid rgba(150,95,110,.14);background:rgba(255,255,255,.34);transition:.2s}
 .card:hover{transform:translateY(-5px);border-color:rgba(210,130,150,.45)}
-.card span{font-size:10px;color:#a17c86;letter-spacing:.2em}
-.card h3{font-size:32px;margin:45px 0 8px}
+.card span{font-size:10px;color:#ea1c76;letter-spacing:.2em}
+.card h3{font-size:32px;margin:45px 0 0px}
 .card p{font-size:13px;line-height:1.7;color:#8d6d77;margin:0}
 
 .dream-text,.promise-text{max-width:650px;margin:0 auto;color:#6f555e;font-size:16px;line-height:1.9}
-.dream{margin:50px auto 15px;font-family:"Caveat","Segoe Print","Bradley Hand",cursive;font-size:clamp(24px,6vw,46px)}
-.tiny{font-size:11px;letter-spacing:.18em;color:#a17c86;text-transform:uppercase}
-.forever{font-family:"Caveat","Segoe Print","Bradley Hand",cursive;font-size:34px;margin-top:45px;color:#b26f82}
-.heart{font-size:65px;color:#d8899b;animation:pulse 2.2s infinite}
-.final-line{font-family:"Caveat","Segoe Print","Bradley Hand",cursive;font-size:clamp(40px,10vw,78px);margin:15px 0 25px}
+.dream{margin:50px auto 15px;font-family:"Caveat","Segoe Print","Bradley Hand",cursive;font-size:clamp(24px,5vw,40px)}
+.tiny{font-size:11px;letter-spacing:.18em;color:#ea1c76;text-transform:uppercase}
+.forever{font-family:"Caveat","Segoe Print","Bradley Hand",cursive;font-size:34px;margin-top:45px;color:#db26f0}
+.heart{font-size:65px;color:#d0699b;animation:pulse 2.2s infinite}
+.final-line{font-family:"Caveat","Segoe Print","Bradley Hand",cursive;font-size:clamp(40px,10vw,70px);margin:15px 0 25px}
 .final-small{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#9b6e7b}
 
 .nav{
   position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
   z-index:30;display:flex;gap:4px;padding:5px;border:1px solid rgba(160,105,120,.18);
-  background:rgba(255,248,250,.78);backdrop-filter:blur(14px);border-radius:999px
+  background:rgba(255,248,250,.78);backdrop-filter:blur(14px);border-radius:959px;
 }
-.nav button{border:0;background:transparent;color:#8f95a8;padding:8px 10px;font-size:10px;cursor:pointer}
+.nav button{border:0;background:transparent;color:#8795a8;padding:8px 10px;font-size:10px;cursor:pointer}
 .nav button:hover{color:#fff}
+
+/* Music Button */
 .music{
   position:fixed;right:18px;bottom:18px;z-index:31;width:40px;height:40px;border-radius:50%;
-  border:1px solid rgba(160,105,120,.2);background:rgba(255,248,250,.78);color:#c9c3d6;cursor:pointer
+  border:1px solid rgba(160,105,120,.2);background:rgba(255,248,250,.78);color:#c9c3d0;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:16px;
 }
 
-@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(18px)}}
-@keyframes reveal{to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes reveal{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:translateY(0)}
+}
 @keyframes twinkle{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:.9;transform:scale(1.3)}}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.12);opacity:1}}
 
 @media(max-width:600px){
   .nav{max-width:calc(100% - 20px);overflow:auto;white-space:nowrap}
-  .nav button{padding:8px 7px;font-size:9px}
+  .nav button{padding:7px 7px;font-size:9px}
   .music{bottom:72px}
   .cards{grid-template-columns:1fr}
   .card{min-height:165px}
@@ -101,61 +113,26 @@ h2{font-size:clamp(45px,9vw,78px);line-height:.95;margin:0 0 30px}
   .letter{font-size:19px}
 }
 
-
 /* POLAROID GALLERY */
-.photo-intro{
-  max-width:560px;
-  margin:-12px auto 45px;
-  text-align:center;
-  color:#8d6d77;
-  font-size:15px;
-}
+.photo-intro{max-width:500px;margin:-12px auto 45px;text-align:center;color:#6d6d77;font-size:15px}
 .polaroid-gallery{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:42px 28px;
-  max-width:760px;
-  margin:auto;
-  padding:15px 10px 35px;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px 28px;
+  max-width:760px;margin:auto;padding:15px 10px 35px;
 }
 .polaroid{
-  margin:0;
-  padding:10px 10px 17px;
-  background:#fffdfc;
-  box-shadow:0 10px 28px rgba(120,76,88,.16);
-  border:1px solid rgba(130,90,100,.08);
-  transition:transform .45s ease, box-shadow .45s ease;
-  position:relative;
+  margin:0;padding:10px 10px 17px;background:#fffdfc;
+  box-shadow:0 10px 28px rgba(120,76,88,.16);border:1px solid rgba(180,90,110,.08);
+  transition:transform .45s ease,box-shadow .45s ease;position:relative;
 }
-.polaroid:after{
-  content:"";
-  position:absolute;
-  width:70px;
-  height:17px;
-  top:-9px;
-  left:50%;
-  transform:translateX(-50%) rotate(-2deg);
-  background:rgba(255,224,230,.72);
-  opacity:.85;
+.polaroid::after{
+  content:"";position:absolute;width:70px;height:17px;top:-9px;left:50%;
+  transform:translateX(-50%) rotate(-2deg);background:rgba(255,224,230,.72);opacity:.85;
 }
-.polaroid:hover{
-  transform:translateY(-8px) rotate(0deg) scale(1.025);
-  box-shadow:0 18px 35px rgba(120,76,88,.22);
-}
-.polaroid img{
-  display:block;
-  width:100%;
-  aspect-ratio:4/5;
-  object-fit:cover;
-  background:#f4e8eb;
-}
+.polaroid:hover{transform:translateY(-8px) rotate(0deg) scale(1.025);box-shadow:0 18px 35px rgba(120,76,88,.22)}
+.polaroid img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:#f4e8eb}
 .polaroid figcaption{
-  text-align:center;
-  color:#765663;
-  font-family:"Caveat","Segoe Print","Bradley Hand",cursive;
-  font-size:23px;
-  line-height:1;
-  padding-top:13px;
+  text-align:center;color:#765663;font-family:"Caveat","Segoe Print","Bradley Hand",cursive;
+  font-size:23px;line-height:1;padding-top:13px;
 }
 .tilt-left{transform:rotate(-2.5deg)}
 .tilt-right{transform:rotate(2.5deg)}
@@ -163,10 +140,6 @@ h2{font-size:clamp(45px,9vw,78px);line-height:.95;margin:0 0 30px}
 .tilt-right-small{transform:rotate(1.8deg)}
 
 @media(max-width:600px){
-  .polaroid-gallery{
-    grid-template-columns:1fr;
-    gap:35px;
-    max-width:330px;
-  }
+  .polaroid-gallery{grid-template-columns:1fr;gap:35px;max-width:330px}
   .polaroid img{aspect-ratio:4/5}
 }
